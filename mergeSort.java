@@ -1,5 +1,7 @@
 import java.util.*;
-public class mergeSort {
+
+
+public class MergeSort {
 
     public static void mergeSortDriver(int nums[][]) {
         if (nums == null || nums.length == 0) {
