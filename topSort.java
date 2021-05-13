@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class topSort {
+public class TopSort {
 
     public ArrayList<DirectedGraphNode> topologicalSort(ArrayList<DirectedGraphNode> graph) {
         // write your code here

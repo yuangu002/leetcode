@@ -1,5 +1,5 @@
 
-public class quickSort {
+public class QuickSort {
 
     public void quickSortDriver(int[] nums) {
         if (nums == null || nums.length == 0) {

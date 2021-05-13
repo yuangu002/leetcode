@@ -21,6 +21,7 @@ Note that the answer must be a substring, "pwke" is a subsequence and not a subs
 * */
 
 import java.util.ArrayList;
+import java.util.*;
 
 public class lengthOfLongestSubstring {
 
@@ -87,6 +88,29 @@ public class lengthOfLongestSubstring {
             }
             if (curLength > maxLength) maxLength = curLength;
             return maxLength;
+        }
+    }
+
+    /**
+     * This is a O(N) solution based on two pointers.
+     * Maintain a left and right point. Advance both while making sure no repeated characters
+     */
+    class Solution3 {
+        public int lengthOfLongestSubstring(String s) {
+            Set<Character> seen = new HashSet<>();
+            int left = 0, right = 0, ans = 0;
+            
+            while (left < s.length() && left <= right) {
+                while (right < s.length() && !seen.contains(s.charAt(right))) {
+                    seen.add(s.charAt(right));
+                    ++right;
+                }
+                ans = Math.max(ans, right - left);
+                char removedChar = s.charAt(left);
+                left++;
+                seen.remove(removedChar);
+            }
+            return ans;
         }
     }
 }

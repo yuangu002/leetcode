@@ -1,5 +1,5 @@
 
-public class longestPalindrome {
+public class LongestPalindrome {
 
     public int longestPalindromeBuilt(String s) {
         // write your code here

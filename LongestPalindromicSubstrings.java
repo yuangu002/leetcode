@@ -1,4 +1,8 @@
 public class LongestPalindromicSubstrings {
+
+    /**
+     * DP solution
+     */
     class Solution {
         public String longestPalindrome(String s) {
             if (s.length()<=1) return s;
@@ -29,6 +33,50 @@ public class LongestPalindromicSubstrings {
                 }
             }
             return s.substring(max[0], max[1]+1);
+        }
+    }
+
+    /**
+     * Two pointers solution
+     */
+    class Solution2 {
+        public String longestPalindrome(String s) {
+            int maxStart = 0;
+            int maxLen = 0;
+            
+            for (int i = 0; i < s.length(); ++i) {
+                int len = expandFrom(s, i, i);
+                int start = i - (len / 2);
+                if (len > maxLen) {
+                    maxLen = len;
+                    maxStart = start;
+                }
+            }
+            
+            for (int i = 0; i < s.length() - 1; ++i) {
+                int left = i, right = i + 1;
+                int len = expandFrom(s, left, right);
+                int start = right - (len / 2);
+                if (len > maxLen) {
+                    maxLen = len;
+                    maxStart = start;
+                }
+            }
+            
+            return s.substring(maxStart, maxStart + maxLen);
+        }
+        
+        private int expandFrom(String s, int left, int right) {
+            int start = left, end = right;
+            
+            while (start >= 0 && end < s.length()) {
+                if (s.charAt(start) != s.charAt(end)) {
+                    return end - start - 1;
+                }
+                --start;
+                ++end;
+            }
+            return end - start - 1;
         }
     }
 }

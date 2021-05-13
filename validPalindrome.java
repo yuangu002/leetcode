@@ -1,5 +1,5 @@
 
-public class validPalindrome {
+public class ValidPalindrome {
     
     // Character.isLetter()
     // Character.toLowerCase()

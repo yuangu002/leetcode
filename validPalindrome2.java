@@ -1,5 +1,5 @@
 
-public class validPalindrome2 {
+public class ValidPalindrome2 {
 
     public boolean validPalindrome(String s) {
         // Write your code here
