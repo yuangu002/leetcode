@@ -23,7 +23,7 @@ Note that the answer must be a substring, "pwke" is a subsequence and not a subs
 import java.util.ArrayList;
 import java.util.*;
 
-public class lengthOfLongestSubstring {
+public class LengthOfLongestSubstring {
 
     /*
     This is a O(n^3) solution: for every character in the string,
