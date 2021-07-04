@@ -5,7 +5,7 @@ public class TopKFrequent {
         
         // O (N log K)
         PriorityQueue<Pair<Integer, Integer>> heap = 
-            new PriorityQueue<Pair<Integer, Integer>>((a, b)->a.getValue() - b.getValue());
+            new PriorityQueue<Pair<Integer, Integer>>((a, b) -> a.getValue() - b.getValue());
         
         HashMap<Integer, Integer> num2freq = new HashMap<>();
         for (int num: nums) {

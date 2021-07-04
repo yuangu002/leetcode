@@ -11,11 +11,7 @@ public class TopSort {
         Map<DirectedGraphNode, Integer> hmap = new HashMap<>();
         for (DirectedGraphNode node: graph) {
             for (DirectedGraphNode neighbor: node.neighbors) {
-                if (hmap.containsKey(neighbor)) {
-                    hmap.put(neighbor, hmap.get(neighbor)+1);
-                } else {
-                    hmap.put(neighbor, 1);
-                }
+                hmap.put(neighbor, hmap.getOrDefault(neighbor, 0) + 1);
             }
         }
         //queue里是当前indegree为0的节点
@@ -45,9 +41,14 @@ public class TopSort {
 
 }
 
-
- class DirectedGraphNode {
-      int label;
-      ArrayList<DirectedGraphNode> neighbors;
-      DirectedGraphNode(int x) { label = x; neighbors = new ArrayList<DirectedGraphNode>(); }
-  };
+/**
+ * Represent a directed graph
+ */
+class DirectedGraphNode {
+    int label;
+    ArrayList<DirectedGraphNode> neighbors;
+    DirectedGraphNode(int x) {
+        label = x;
+        neighbors = new ArrayList<DirectedGraphNode>(); 
+    }
+};

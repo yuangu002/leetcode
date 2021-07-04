@@ -1,4 +1,9 @@
-
+/**
+ * Determine whether a string is a palindrome by allowing only one mismatch
+ * 
+ * racecar -> true
+ * wmillim
+ */
 public class ValidPalindrome2 {
 
     public boolean validPalindrome(String s) {
@@ -7,7 +12,10 @@ public class ValidPalindrome2 {
         if (s.length() == 0) return true;
         
         int[] pair = findFirstMismatch(s);
-        if (pair == null) return true;
+        // The string is a palindrome 
+        if (pair == null) {
+            return true;
+        }
         int left = pair[0];
         int right = pair[1];
         
@@ -26,7 +34,14 @@ public class ValidPalindrome2 {
         }
         return null;
     }
-    
+
+    /**
+     * Ulitity func to determine if a string is a palindrome
+     * @param s string
+     * @param start start ptr
+     * @param end end ptr
+     * @return
+     */
     private boolean isPalindrome(String s, int start, int end){
         while (start < end && s.charAt(start) == s.charAt(end)){
             start++;

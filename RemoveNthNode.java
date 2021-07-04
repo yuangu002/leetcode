@@ -15,7 +15,9 @@ public class RemoveNthNode {
                 cur = cur.next;
                 size++;
             }
-            if (n==size) return head.next;
+            if (n == size) {
+                return head.next;
+            }
             int index = size - n;
             while (index > 1){
                 cur2 = cur2.next;

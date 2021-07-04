@@ -3,7 +3,7 @@ import java.util.*;
 public class ValidParentheses {
     class Solution {
         public boolean isValid(String s) {
-            Stack<Character> stack = new Stack();
+            Stack<Character> stack = new Stack<>();
             HashMap<Character, Character> match = new HashMap<>();
             match.put(')', '(');
             match.put(']', '[');
@@ -20,6 +20,8 @@ public class ValidParentheses {
             }
             return stack.isEmpty();
         }
+
+        
         public boolean isValid2(String s){
             char[] stack = new char[s.length()];
             int ptr = 0;

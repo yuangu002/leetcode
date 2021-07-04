@@ -1,14 +1,14 @@
 
 public class QuickSort {
 
-    public void quickSortDriver(int[] nums) {
+    public static void quickSortDriver(int[] nums) {
         if (nums == null || nums.length == 0) {
             return;
         }
         quickSortHelper(nums, 0, nums.length - 1);
     }
 
-    private void quickSortHelper(int[] nums, int start, int end) {
+    private static void quickSortHelper(int[] nums, int start, int end) {
         if (start >= end) {
             return;
         }
@@ -42,5 +42,14 @@ public class QuickSort {
         // 3. recurse on both parts
         quickSortHelper(nums, start, right);
         quickSortHelper(nums, left, end);
+    }
+
+    public static void main(String[] args) {
+        int[] A = {3, 4, 2, 1, 10, 9, -8};
+        quickSortDriver(A);
+
+        for (int i = 0; i < A.length; ++i) {
+            System.out.println(A[i]);
+        }
     }
 }

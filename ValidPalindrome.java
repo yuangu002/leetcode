@@ -1,4 +1,6 @@
-
+/**
+ * Given a string, determine if it's a palindrome by ignoring all invalid chars
+ */
 public class ValidPalindrome {
     
     // Character.isLetter()

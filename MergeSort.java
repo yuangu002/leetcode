@@ -1,17 +1,14 @@
-import java.util.*;
-
-
 public class MergeSort {
 
-    public static void mergeSortDriver(int nums[][]) {
+    public static void mergeSortDriver(int[] nums) {
         if (nums == null || nums.length == 0) {
             return;
         }
-        int[][] temp = new int[nums.length][nums[0].length];
+        int[] temp = new int[nums.length];
         mergeSortHelper(nums, 0, nums.length - 1, temp);
     }
 
-    private static void mergeSortHelper(int nums[][], int start, int end, int[][] tmp) {
+    private static void mergeSortHelper(int nums[], int start, int end, int[] tmp) {
         if (start >= end) {
             return;
         }
@@ -24,14 +21,14 @@ public class MergeSort {
         merge(nums, start, mid, end, tmp);
     }
 
-    private static void merge(int[][] nums, int low, int mid, int high, int[][] tmp) {
+    private static void merge(int[] nums, int low, int mid, int high, int[] tmp) {
         // merge two sorted array
         int ptrTmp = low, leftStart = low, rightStart = mid + 1;
 
         while (leftStart <= mid && rightStart <= high) {
-            if (nums[leftStart][2] > nums[rightStart][2]) {
+            if (nums[leftStart] < nums[rightStart]) {
                 tmp[ptrTmp++] = nums[leftStart++];
-            } else if (nums[leftStart][2] < nums[rightStart][2]) {
+            } else if (nums[leftStart] > nums[rightStart]) {
                 tmp[ptrTmp++] = nums[rightStart++];
             } else {
                 tmp[ptrTmp++] = nums[leftStart++];
@@ -47,25 +44,18 @@ public class MergeSort {
             tmp[ptrTmp++] = nums[rightStart++];
         }
 
+        // copy the tmp array to the original array
         for (int i = low; i <= high; ++i) {
             nums[i] = tmp[i];
         }
     }
 
     public static void main(String[] args) {
-        int[][] A = {{1,5,5,0}, {2,7,8,1}, {3,7,5,1}, {4,10,3,3}};
+        int[] A = {3, 4, 2, 1, 10, 9, -8};
         mergeSortDriver(A);
-        int total = 18;
-        List<Integer> losers = new ArrayList<>();
+
         for (int i = 0; i < A.length; ++i) {
-            if (total <= 0) {
-                losers.add(A[i][0]);
-            } else {
-                total -= A[i][1];
-            }
-        }
-        for (int j = 0; j < losers.size(); ++j) {
-            System.out.println(losers.get(j));
+            System.out.println(A[i]);
         }
     }
 }
