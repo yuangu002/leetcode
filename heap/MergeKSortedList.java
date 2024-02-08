@@ -1,5 +1,7 @@
 package heap;
+
 import java.util.*;
+import common.ListNode;
 
 
 public class MergeKSortedList {
@@ -22,14 +24,5 @@ public class MergeKSortedList {
             }
         }
         return dummy.next;
-    }
-}
-
-class ListNode {
-    int val;
-    ListNode next;
-
-    public ListNode(int val) {
-        this.val = val;
     }
 }

@@ -1,5 +1,6 @@
 package tree;
 import java.util.Stack;
+import common.TreeNode;
 
 public class BSTiterator {
     public Stack<TreeNode> stack = new Stack<>();
@@ -35,17 +36,5 @@ public class BSTiterator {
             stack.push(node);
             node = node.left;
         }
-    }
-}
-
-class TreeNode {
-    TreeNode left;
-    TreeNode right;
-    int val;
-
-    public TreeNode(int val) {
-        this.val = val;
-        left = null;
-        right = null;
     }
 }

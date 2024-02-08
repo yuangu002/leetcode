@@ -1,5 +1,6 @@
 package tree;
 import java.util.*;
+import common.TreeNode;
 
 public class ConstructFromInAndPost {
     HashMap<Integer, Integer> val2idx;

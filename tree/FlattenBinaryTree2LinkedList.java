@@ -1,4 +1,6 @@
 package tree;
+import common.TreeNode;
+
 public class FlattenBinaryTree2LinkedList {
     public void flatten(TreeNode root) {
         flattenHelper(root);

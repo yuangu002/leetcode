@@ -1,5 +1,7 @@
 package array_linked_list;
 
+import common.ListNode;
+
 public class MergeTwoSortedList {
 
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
@@ -64,8 +66,3 @@ public class MergeTwoSortedList {
     }
 }
 
-class ListNode {
-    int val;
-    ListNode next;
-    ListNode(int x) { val = x; }
-}

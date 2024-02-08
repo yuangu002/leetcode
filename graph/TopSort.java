@@ -1,6 +1,7 @@
 package graph;
 
 import java.util.*;
+import common.DirectedGraphNode;
 
 public class TopSort {
 
@@ -40,17 +41,4 @@ public class TopSort {
         }
         return res;
     }
-
 }
-
-/**
- * Represent a directed graph
- */
-class DirectedGraphNode {
-    int label;
-    ArrayList<DirectedGraphNode> neighbors;
-    DirectedGraphNode(int x) {
-        label = x;
-        neighbors = new ArrayList<DirectedGraphNode>(); 
-    }
-};

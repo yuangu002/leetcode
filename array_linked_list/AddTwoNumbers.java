@@ -1,5 +1,7 @@
 package array_linked_list;
 
+import common.ListNode;
+
 public class AddTwoNumbers {
 
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
@@ -40,10 +42,4 @@ public class AddTwoNumbers {
 
         return fake.next;
     }
-}
-
-class ListNode {
-    int val;
-    ListNode next;
-    ListNode(int x) { val = x; }
 }

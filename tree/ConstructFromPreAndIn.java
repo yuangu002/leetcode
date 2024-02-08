@@ -1,5 +1,6 @@
 package tree;
 import java.util.*;
+import common.TreeNode;
 
 public class ConstructFromPreAndIn {
     HashMap<Integer, Integer> value2idx;

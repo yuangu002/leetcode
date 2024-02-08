@@ -1,5 +1,6 @@
 package tree;
 import java.util.*;
+import common.TreeNode;
 
 public class ConstructBSTFromPreorder {
     HashMap<Integer, Integer> val2idx;
