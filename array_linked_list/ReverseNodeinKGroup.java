@@ -20,6 +20,16 @@ public class ReverseNodeinKGroup {
         return rev;
     }
     
+    /**
+     * Memorize this!
+     * Reverse a linked list from node A to node B.
+     * Return the head of the reversed linked list
+     * A -> C -> D -> B
+     * ^    ^
+     * prev cur
+     * tmp = D -> B
+     * C -> D -> B
+     */
     private ListNode reverse(ListNode a, ListNode b) {
         ListNode prev = null, cur = a;
         

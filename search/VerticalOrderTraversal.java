@@ -35,7 +35,7 @@ public class VerticalOrderTraversal {
         if (node == null) {
             return;
         }
-        NodePosition nodePosition = new NodePosition(node.val, row, col);
+        NodePosition nodePosition = new NodePosition(node.val, row);
         PriorityQueue<NodePosition> nodesInCol = col2Nodes.getOrDefault(col, new PriorityQueue<NodePosition>(new Comparator<NodePosition>() {
             @Override
             public int compare(NodePosition pos1, NodePosition pos2) {
@@ -60,10 +60,8 @@ public class VerticalOrderTraversal {
 class NodePosition {
     int val;
     int row;
-    int col;
-    public NodePosition(int val, int row, int col) {
+    public NodePosition(int val, int row) {
         this.val = val;
         this.row = row;
-        this.col = col;
     }
 }
