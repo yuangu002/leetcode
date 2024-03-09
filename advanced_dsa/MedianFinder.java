@@ -1,4 +1,4 @@
-package heap;
+package advanced_dsa;
 import java.util.*;
 
 class MedianFinder {

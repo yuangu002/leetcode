@@ -1,4 +1,4 @@
-package array_linked_list;
+package linkedlist;
 
 import common.ListNode;
 
