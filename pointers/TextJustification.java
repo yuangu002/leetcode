@@ -83,23 +83,23 @@ class TextJustification {
         if (size == 0) {
             return fillLine(words[left], maxWidth);
         }
-        int sumChar = 0;
-        for (int i = left; i <= right; ++i) {
-            String word = words[i];
-            sumChar += word.length();
-        }
+        int sumChar = countTotalLen(words, left, right);
         int spaceBetweenChar = isLastLine ? 1 : (maxWidth - sumChar) / size;
         int modSpace = isLastLine ? 0 : (maxWidth - sumChar) % size;
         StringBuffer sb = new StringBuffer(); 
-        for (int j = left; j <= right; ++j) {
-            sb.append(words[j]).append(getSpace(spaceBetweenChar));
+        for (int i = left; i <= right; ++i) {
+            sb.append(words[i]);
+            if (i == right) {
+                continue;
+            }
+            sb.append(getSpace(spaceBetweenChar));
             if (modSpace > 0) {
                 sb.append(" ");
                 modSpace--;
             }
         }
         
-        return fillLine(sb.toString().trim(), maxWidth);
+        return fillLine(sb.toString(), maxWidth);
     }
 
     private String fillLine(String s, int maxWidth) {
@@ -116,5 +116,13 @@ class TextJustification {
             sb.append(" ");
         }
         return sb.toString();
+    }
+
+    private int countTotalLen(String[] words, int left, int right) {
+        int cnt = 0;
+        for (int i = left; i <= right; ++i) {
+            cnt += words[i].length();
+        }
+        return cnt;
     }
 }
