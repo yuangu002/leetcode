@@ -7,49 +7,28 @@ package pointers;
  * wmillim
  */
 public class ValidPalindrome2 {
-
     public boolean validPalindrome(String s) {
-        // Write your code here
-        if (s == null) return false;
-        if (s.length() == 0) return true;
+        int left = 0, right = s.length() - 1;
         
-        int[] pair = findFirstMismatch(s);
-        // The string is a palindrome 
-        if (pair == null) {
-            return true;
+        while (left < right) {
+            if (s.charAt(left) != s.charAt(right)) {
+                return isValid(s, left+1, right) || isValid(s, left, right-1);
+            }
+            ++left;
+            --right;
         }
-        int left = pair[0];
-        int right = pair[1];
-        
-        return isPalindrome(s, left + 1, right) || isPalindrome(s, left, right - 1);
-        
+        return true;
     }
     
-    private int[] findFirstMismatch(String s){
-        int start = 0, end = s.length() - 1;
-        while (start < end) {
-            if (s.charAt(start) != s.charAt(end)) {
-                return new int[]{start, end};
+    private boolean isValid(String s, int start, int end) {
+        int left = start, right = end;
+        while (left < right) {
+            if (s.charAt(left) != s.charAt(right)) {
+                return false;
             }
-            start++;
-            end--;
+            ++left;
+            --right;
         }
-        return null;
+        return true;
     }
-
-    /**
-     * Ulitity func to determine if a string is a palindrome
-     * @param s string
-     * @param start start ptr
-     * @param end end ptr
-     * @return
-     */
-    private boolean isPalindrome(String s, int start, int end){
-        while (start < end && s.charAt(start) == s.charAt(end)){
-            start++;
-            end--;
-        }
-        return (start >= end);
-    }
-
 }
