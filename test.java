@@ -1,27 +1,50 @@
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
-import common.TreeNode;
-import search.VerticalOrderTraversal;
+import advanced_dsa.AtomicKeyValueStore;
 
 public class Test {
 
+    /**
+     * SET my_key original_value
+     * BEGIN
+     * SET my_key second_value
+     * SET another_key another_value
+     * RETURN my_key
+     * BEGIN
+     * SET my_key third_value
+     * SET another_key second_another_value
+     * RETURN my_key
+     * RETURN another_key
+     * COMMIT
+     * SET my_key fourth_value
+     * ROLLBACK
+     * RETURN my_key
+     * RETURN another_key
+     */
     public static void main(String[] args){
-        TreeNode root = new TreeNode(3);
-        TreeNode left = new TreeNode(9);
-        TreeNode right = new TreeNode(20);
-        root.left = left;
-        root.right = right;
-        TreeNode rightLeft = new TreeNode(15);
-        TreeNode rightRight = new TreeNode(7);
-        root.right.left = rightLeft;
-        root.right.right = rightRight;
-        VerticalOrderTraversal solution = new VerticalOrderTraversal();
-        List<List<Integer>> res = solution.verticalTraversal(root);
-        for (List<Integer> list: res) {
-            System.out.println("start of list: ");
-            for (int val: list) {
-                System.out.println(val);
-            }
+        List<String> input = new ArrayList<String>(Arrays.asList(
+                "SET my_key original_value",
+                "BEGIN",
+                "SET my_key second_value",
+                "SET another_key another_value",
+                "RETURN my_key",
+                "BEGIN",
+                "SET my_key third_value",
+                "SET another_key second_another_value",
+                "RETURN my_key",
+                "RETURN another_key",
+                "COMMIT",
+                "SET my_key fourth_value",
+                "ROLLBACK",
+                "RETURN my_key",
+                "RETURN another_key")
+        );
+        AtomicKeyValueStore store = new AtomicKeyValueStore();
+        List<String> output = store.keyValueStore(input);
+        for (String s: output) {
+            System.out.println(s);
         }
     }
 }
