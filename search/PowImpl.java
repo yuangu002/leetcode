@@ -20,9 +20,9 @@ class PowImpl {
     // x ^ (2^n + k)
     // get n (0 <= n <= 31)
     // when n = 0, x
-    // when n = 1, 2x
-    // when n = 2, 4x
-    // when n = 3, 8x
+    // when n = 1, x * x
+    // when n = 2, x * x * x * x
+    // when n = 3, x * x * x * x * x * x * x * x
     // ...
     // + remaining k x's
     public double myPow(double x, int n) {
