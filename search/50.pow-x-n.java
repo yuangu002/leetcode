@@ -1,21 +1,28 @@
 package search;
 
-/**
- * Implement pow(x, n), which calculates x raised to the power n (i.e., xn).
-    Example 1:
-    Input: x = 2.00000, n = 10
-    Output: 1024.00000
-
-    Example 2:
-    Input: x = 2.10000, n = 3
-    Output: 9.26100
-
-    Example 3:
-    Input: x = 2.00000, n = -2
-    Output: 0.25000
-    Explanation: 2-2 = 1/22 = 1/4 = 0.25
+/*
+ * @lc app=leetcode id=50 lang=java
+ *
+ * [50] Pow(x, n)
  */
-class PowImpl {
+
+// @lc code=start
+class Solution {
+    /**
+     * Implement pow(x, n), which calculates x raised to the power n (i.e., xn).
+        Example 1:
+        Input: x = 2.00000, n = 10
+        Output: 1024.00000
+
+        Example 2:
+        Input: x = 2.10000, n = 3
+        Output: 9.26100
+
+        Example 3:
+        Input: x = 2.00000, n = -2
+        Output: 0.25000
+        Explanation: 2-2 = 1/22 = 1/4 = 0.25
+    */
     // x ^ power
     // x ^ (2^n + k)
     // get n (0 <= n <= 31)
@@ -50,3 +57,6 @@ class PowImpl {
         return ans;
     }
 }
+
+// @lc code=end
+

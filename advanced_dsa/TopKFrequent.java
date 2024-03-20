@@ -1,14 +1,13 @@
 package advanced_dsa;
 
 import java.util.*;
-import javafx.util.Pair;
 
 public class TopKFrequent {
     public int[] topKFrequent(int[] nums, int k) {
         
         // O (N log K)
-        PriorityQueue<Pair<Integer, Integer>> heap = 
-            new PriorityQueue<Pair<Integer, Integer>>((a, b) -> a.getValue() - b.getValue());
+        PriorityQueue<int[]> heap = 
+            new PriorityQueue<int[]>((a, b) -> a[1] - b[1]);
         
         HashMap<Integer, Integer> num2freq = new HashMap<>();
         for (int num: nums) {
@@ -18,7 +17,7 @@ public class TopKFrequent {
         
         for (Map.Entry entry: num2freq.entrySet()) {
             int key = (int)entry.getKey(), value = (int)entry.getValue();
-            heap.add(new Pair(key, value));
+            heap.add(new int[]{key, value});
             
             if (heap.size() > k) {
                 heap.poll();
@@ -27,8 +26,8 @@ public class TopKFrequent {
         
         int[] res = new int[k];
         for (int i = 0; i < k; ++i) {
-            Pair pair = heap.poll();
-            res[i] = (int) pair.getKey();
+            int[] pair = heap.poll();
+            res[i] = pair[0];
         }
         return res;
     }   
